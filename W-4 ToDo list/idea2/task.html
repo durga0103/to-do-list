@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <form class="task-form">
+    <h4 class="mb-4 text-center">📝 Add New Task</h4>
+    <div class="mb-3">
+      <label for="taskList" class="form-label">📋 Task List Name</label>
+      <input type="text" class="form-control" id="taskList" placeholder="Enter TaskList name...">
+    </div>
+
+    <div class="mb-3">
+      <label for="taskText" class="form-label">🗒️ Task Description</label>
+      <textarea class="form-control" id="taskText" rows="3" placeholder="Type your task..."></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="deadline" class="form-label">⏰ Deadline</label>
+      <input type="date" class="form-control" id="deadline">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">📅 Selected Date:</label>
+      <p id="selectedDate" class="fw-semibold text-primary"></p>
+    </div>
+
+    <button type="submit" class="btn-save">💾Save Task</button>
+  </form>
+  <div>
+  <a href="create.html" class="form-end">⬅️ Back</a>
+  <a href="list.html" class="form-end">📖 View Tasks</a>
+</div>
+
+  <script>
+    document.querySelector(".task-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("taskList").value.trim();
+  const desc = document.getElementById("taskText").value.trim();
+  const deadline = document.getElementById("deadline").value;
+
+  if (!name || !desc || !deadline) {
+    alert("Please enter all values❗");
+    return;
+  }
+  const task = {
+    name,
+    desc,
+    deadline,
+    dateCreated: new Date().toISOString(),
+    done: false
+  };
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  alert("Task saved successfully✅");
+  this.reset();
+});
+    const selectedDate = localStorage.getItem("selectedDate");
+    if (selectedDate) 
+    {
+      document.getElementById("selectedDate").textContent = selectedDate;
+    }
+  function goBack() {
+    window.history.back();
+  }
+  function viewTasks() {
+    window.location.href = "list.html";
+  }
+  </script>
+</body>
+</html>

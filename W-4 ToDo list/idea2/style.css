@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, #bba9e6, #fdd0f0, #bba9e6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #58304c;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 15px 30px;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #58304c;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: #0c0c0c;
+}
+.btn:hover {
+  transform: scale(1.05);
+  background-color:#c289d8;
+}
+
+/* date */
+.card {
+  background-color: #fcf2f6;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 360px;
+}
+
+/* task */
+.task-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.btn-task,.btn-save, .form-end {
+  background-color:#bcabe4;
+  color: #000000;
+  border: none;
+  padding: 0.8rem;
+  width: 100%;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.btn-task,.btn-save,.form-end:hover{
+  transform: scale(1.05);
+  opacity: 0.9;
+  background-color: #c289d8;
+}
+/* list */
+.card.done {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.no-tasks {
+  text-align: center;
+  font-weight: bold;
+  color: green;
+  margin-top: 2rem;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
